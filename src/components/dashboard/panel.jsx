@@ -1,0 +1,1 @@
+//creation of the main panel with the cards and the graphs
