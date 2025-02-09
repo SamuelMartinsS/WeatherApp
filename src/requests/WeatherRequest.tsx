@@ -107,5 +107,4 @@ export default async function WeatherRequest(props) {
   } catch (error) {
     return false;
   }
-  return true;
 }

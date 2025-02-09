@@ -10,9 +10,12 @@ export default function Panel() {
   const [loading, setLoading] = useState(true);
   const [fahr, setfahr] = useState(false);
 
+  
   const handleChildData = (data) => {
     setfahr(data);
   };
+
+  
 
   useEffect(() => {
     const readWeather = () => {
@@ -103,15 +106,13 @@ export default function Panel() {
             </>
           )}
         </div>
-        <div className="chart-container">
-          {weatherData.names.length > 0 && weatherData.daily && (
-            <LineChart
-              ids={weatherData.names}
-              data={weatherData.daily}
-              fahr={fahr}
-            />
-          )}
-        </div>
+        {weatherData.names.length > 0 && weatherData.daily && (
+          <LineChart
+            ids={weatherData.names}
+            data={weatherData.daily}
+            fahr={fahr}
+          />
+        )}
       </div>
     </>
   );

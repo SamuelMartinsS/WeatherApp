@@ -10,7 +10,8 @@ export default function Header({ sendFahr, cityName }) {
 
   const handleLocation = async () => {
     if (inputLocation.current) {
-      await WeatherRequest(inputLocation.current.value);
+      const control = await WeatherRequest(inputLocation.current.value);
+      control === true ? alert("City "+inputLocation.current.value+" found!") : alert("City not found");
     }
   };
 
@@ -23,7 +24,7 @@ export default function Header({ sendFahr, cityName }) {
     <header>
       <div className="header">
         {city !== undefined ? (
-          <div className="city-name">{city} Forecast</div>
+          <div className="city-name">{city.toUpperCase()} FORECAST</div>
         ) : (
           <div className="city-name">Forecast</div>
         )}
@@ -42,6 +43,7 @@ export default function Header({ sendFahr, cityName }) {
             id="inpLocation"
             ref={inputLocation}
             placeholder="city name goes in here"
+            required
           ></input>
           <button
             className="input-button"
