@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect, useState } from "react";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -22,13 +24,22 @@ ChartJS.register(
   Legend
 );
 
-const LineChart = ({ ids, data, celcius }) => {
+const LineChart = ({ ids, data, fahr }) => {
   const hours = Array.from({ length: 8 }, (_, i) => i * 3 + " hours");
+  const processedData = fahr
+    ? Object.fromEntries(
+        Object.entries(data).map(([day, values]) => [
+          day,
+          values.map((value) => (value !== null ? value * 1.8 + 32 : null)), // Handle null values
+        ])
+      )
+    : data;
+
   const chartData = {
     labels: hours,
-    datasets: Object.keys(data).map((key, index) => ({
+    datasets: Object.keys(processedData).map((key, index) => ({
       label: ids[index],
-      data: data[key],
+      data: processedData[key],
       borderColor: `hsl(${index * 40}, 70%, 50%)`,
     })),
   };
@@ -44,7 +55,7 @@ const LineChart = ({ ids, data, celcius }) => {
     plugins: {
       title: {
         display: true,
-        text: celcius
+        text: !fahr
           ? "Temperature every 3 hours in Celcius"
           : "Temperature every 3 hours in Fahrenheit",
       },
@@ -57,12 +68,15 @@ const LineChart = ({ ids, data, celcius }) => {
       cornerRadius: 2,
       xPadding: 10,
       yPadding: 10,
+      XMargin: 10,
     },
   };
 
   return (
-    <div class="aspect-ratio">
-      <Line data={chartData} options={chartOptions} />
+    <div className="graph-container">
+      <div className="aspect-ratio">
+        <Line data={chartData} options={chartOptions} />
+      </div>
     </div>
   );
 };

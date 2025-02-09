@@ -8,7 +8,7 @@ export default function WeatherCard(props) {
   };
 
   const showTemperature = (temperature) => {
-    if (props.far) return temperature * 1.8 + 32 + " F°";
+    if (props.fahr) return temperature * 1.8 + 32 + " F°";
     return temperature + " C°";
   };
 

@@ -102,8 +102,10 @@ export default async function WeatherRequest(props) {
     processedData["names"] = daysOfWeek;
     processedData["city"] = data.city["name"];
     localStorage.setItem("weatherData", JSON.stringify(processedData));
+
+    return true;
   } catch (error) {
-    return;
+    return false;
   }
-  return;
+  return true;
 }

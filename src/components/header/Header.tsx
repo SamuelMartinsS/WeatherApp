@@ -3,22 +3,39 @@ import WeatherRequest from "../../requests/WeatherRequest.tsx";
 import { useState } from "react";
 import { useRef } from "react";
 
-export default function Header() {
+export default function Header({ sendFahr, cityName }) {
   const inputLocation = useRef(null);
+  const city = cityName;
+  const [far, setFar] = useState(true);
 
-  const handleLocation = () => {
+  const handleLocation = async () => {
     if (inputLocation.current) {
-      WeatherRequest(inputLocation.current.value);
+      await WeatherRequest(inputLocation.current.value);
     }
+  };
+
+  const handleFar = () => {
+    setFar(!far);
+    sendFahr(far);
   };
 
   return (
     <header>
       <div className="header">
-        <div className="title">
-          <h2 className="header-h2">Five Days Weather Forecast</h2>
-        </div>
+        {city !== undefined ? (
+          <div className="city-name">{city} Forecast</div>
+        ) : (
+          <div className="city-name">Forecast</div>
+        )}
         <div className="search">
+          <div className="switch-container">
+            C°&nbsp;
+            <label className="switch">
+              <input type="checkbox" onClick={handleFar} />
+              <span className="slider round"></span>
+            </label>
+            &nbsp;F°
+          </div>
           <input
             className="input-search"
             type="text"
