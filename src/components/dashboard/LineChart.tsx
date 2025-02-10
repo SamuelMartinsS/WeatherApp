@@ -29,7 +29,7 @@ const LineChart = ({ ids, data, fahr }) => {
   const hours = Array.from({ length: 8 }, (_, i) => i * 3 + " hours");
   const processedData = fahr
     ? Object.fromEntries(
-        Object.entries(data).map(([day, values]) => [
+        Object.entries(data).map(([day, values]: any) => [
           day,
           values.map((value) => (value !== null ? value * 1.8 + 32 : null)), // Handle null values
         ])
@@ -74,8 +74,8 @@ const LineChart = ({ ids, data, fahr }) => {
             }));
           },
           font: {
-            size: 14,
-            weight: "bold",
+            size: 20,
+            weight: "bold" as "bold",
           },
           color: "black",
           padding: 15,
