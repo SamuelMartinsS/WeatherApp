@@ -64,20 +64,18 @@ export default function Header({ sendFahr, cityName }) {
         </div>
       </div>
       {showModalError && (
-        <Modal isOpen={showModalError} onClose={handleCloseModal} error={true}>
-          <h1>GFG</h1>
-          <h3>A computer science portal!</h3>
-        </Modal>
+        <Modal
+          isOpen={showModalError}
+          onClose={handleCloseModal}
+          error={true}
+        />
       )}
       {showModalLoading && (
         <Modal
           isOpen={showModalLoading}
           onClose={handleCloseModal}
           error={false}
-        >
-          <h1>GFG</h1>
-          <h3>A computer science portal!</h3>
-        </Modal>
+        />
       )}
     </header>
   );
