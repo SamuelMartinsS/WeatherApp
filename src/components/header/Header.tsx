@@ -20,9 +20,8 @@ export default function Header({ sendFahr, cityName }) {
 
   const handleCloseModal = () => {
     setShowModalLoading(false);
-    setShowModalError(false)
+    setShowModalError(false);
   };
-
 
   const handleFar = () => {
     setFar(!far);
@@ -51,7 +50,7 @@ export default function Header({ sendFahr, cityName }) {
             type="text"
             id="inpLocation"
             ref={inputLocation}
-            placeholder="city name goes in here"
+            placeholder="city name"
             required
           ></input>
           <button
@@ -64,18 +63,22 @@ export default function Header({ sendFahr, cityName }) {
           </button>
         </div>
       </div>
-      {showModalError && <Modal isOpen={showModalError} onClose={handleCloseModal} error={true}>
-       
+      {showModalError && (
+        <Modal isOpen={showModalError} onClose={handleCloseModal} error={true}>
           <h1>GFG</h1>
           <h3>A computer science portal!</h3>
-       
-      </Modal> }
-      {showModalLoading && <Modal isOpen={showModalLoading} onClose={handleCloseModal} error={false}>
-       
-       <h1>GFG</h1>
-       <h3>A computer science portal!</h3>
-    
-   </Modal> }
+        </Modal>
+      )}
+      {showModalLoading && (
+        <Modal
+          isOpen={showModalLoading}
+          onClose={handleCloseModal}
+          error={false}
+        >
+          <h1>GFG</h1>
+          <h3>A computer science portal!</h3>
+        </Modal>
+      )}
     </header>
   );
 }

@@ -10,12 +10,9 @@ export default function Panel() {
   const [loading, setLoading] = useState(true);
   const [fahr, setfahr] = useState(false);
 
-
   const handleChildData = (data) => {
     setfahr(data);
   };
-
-
 
   useEffect(() => {
     const readWeather = () => {
@@ -44,6 +41,7 @@ export default function Panel() {
         <div>
           {loading === false ? (
             <>
+              <div className="city-name-panel">{weatherData.city} Forecast</div>
               {weatherData.names.length > 0 && weatherData.daily && (
                 <div className="cards-container">
                   <WeatherCard
@@ -81,15 +79,17 @@ export default function Panel() {
                     icon={weatherData.weekly.day5.icon}
                     fahr={fahr}
                   />
-                  {weatherData.weekly > 5 ? <WeatherCard
-                    day={weatherData.names[5]}
-                    maxTemp={weatherData.weekly.day6.maxTemp}
-                    minTemp={weatherData.weekly.day6.minTemp}
-                    icon={weatherData.weekly.day6.icon}
-                    fahr={fahr}
-                  /> : <> </>}
-
-
+                  {weatherData.weekly > 5 ? (
+                    <WeatherCard
+                      day={weatherData.names[5]}
+                      maxTemp={weatherData.weekly.day6.maxTemp}
+                      minTemp={weatherData.weekly.day6.minTemp}
+                      icon={weatherData.weekly.day6.icon}
+                      fahr={fahr}
+                    />
+                  ) : (
+                    <> </>
+                  )}
                 </div>
               )}
             </>
