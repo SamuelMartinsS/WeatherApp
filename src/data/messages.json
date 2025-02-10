@@ -1,0 +1,10 @@
+{
+    "loading":{
+        "title":"Loading...",
+        "message":"Please wait while we load the data"
+    },
+    "error":{
+        "title":"Error",
+        "message":"An error occurred while loading the data, please try again later"
+    }
+}

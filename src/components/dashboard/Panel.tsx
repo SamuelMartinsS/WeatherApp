@@ -10,12 +10,12 @@ export default function Panel() {
   const [loading, setLoading] = useState(true);
   const [fahr, setfahr] = useState(false);
 
-  
+
   const handleChildData = (data) => {
     setfahr(data);
   };
 
-  
+
 
   useEffect(() => {
     const readWeather = () => {
@@ -81,13 +81,15 @@ export default function Panel() {
                     icon={weatherData.weekly.day5.icon}
                     fahr={fahr}
                   />
-                  <WeatherCard
+                  {weatherData.weekly > 5 ? <WeatherCard
                     day={weatherData.names[5]}
                     maxTemp={weatherData.weekly.day6.maxTemp}
                     minTemp={weatherData.weekly.day6.minTemp}
                     icon={weatherData.weekly.day6.icon}
                     fahr={fahr}
-                  />
+                  /> : <> </>}
+
+
                 </div>
               )}
             </>
@@ -95,7 +97,7 @@ export default function Panel() {
             <>
               <div className="loading-container">
                 <div className="loading-card">
-                  <h3>Loading...</h3>
+                  <h3>TIP</h3>
                   <p>
                     Type in the name of the city for which you want to see the
                     weather forecast for the next 5 days in the text box in the

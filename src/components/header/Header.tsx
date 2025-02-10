@@ -2,18 +2,27 @@ import React from "react";
 import WeatherRequest from "../../requests/WeatherRequest.tsx";
 import { useState } from "react";
 import { useRef } from "react";
+import Modal from "../dashboard/Modal.tsx";
 
 export default function Header({ sendFahr, cityName }) {
   const inputLocation = useRef(null);
   const city = cityName;
   const [far, setFar] = useState(true);
+  const [showModalError, setShowModalError] = useState(false);
+  const [showModalLoading, setShowModalLoading] = useState(false);
 
   const handleLocation = async () => {
     if (inputLocation.current) {
       const control = await WeatherRequest(inputLocation.current.value);
-      control === true ? alert("City "+inputLocation.current.value+" found!") : alert("City not found");
+      control === true ? setShowModalLoading(true) : setShowModalError(true);
     }
   };
+
+  const handleCloseModal = () => {
+    setShowModalLoading(false);
+    setShowModalError(false)
+  };
+
 
   const handleFar = () => {
     setFar(!far);
@@ -55,6 +64,18 @@ export default function Header({ sendFahr, cityName }) {
           </button>
         </div>
       </div>
+      {showModalError && <Modal isOpen={showModalError} onClose={handleCloseModal} error={true}>
+       
+          <h1>GFG</h1>
+          <h3>A computer science portal!</h3>
+       
+      </Modal> }
+      {showModalLoading && <Modal isOpen={showModalLoading} onClose={handleCloseModal} error={false}>
+       
+       <h1>GFG</h1>
+       <h3>A computer science portal!</h3>
+    
+   </Modal> }
     </header>
   );
 }

@@ -16,8 +16,8 @@ export default function WeatherCard(props) {
     <div style={{ width: "15rem" }} className="weather-card">
       <h3 className="card-title">{props.day}</h3>
       <div>
-        <p>max &nbsp;&nbsp;{showTemperature(props.maxTemp)}</p>
-        <p>min &nbsp;&nbsp;{showTemperature(props.minTemp)}</p>
+        <p className="card-message"> max &nbsp;&nbsp;{showTemperature(props.maxTemp)}</p>
+        <p className="card-message"> min &nbsp;&nbsp;{showTemperature(props.minTemp)}</p>
         <WeatherIcon iconCode={props.icon} />
       </div>
     </div>

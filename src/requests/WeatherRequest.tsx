@@ -1,4 +1,4 @@
-//import data from "../cache/weatherdata.json";
+import data from "../data/weatherdata.json";
 
 export default async function WeatherRequest(props) {
   try {
@@ -82,6 +82,7 @@ export default async function WeatherRequest(props) {
       perDayVariation["day1"].unshift(null);
     }
 
+    console.log(perDayVariation);
     //get the names of the days of the week
     const today = new Date();
     const dayIndex = today.getDay();
