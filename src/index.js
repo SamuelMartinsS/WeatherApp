@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import Panel from "./components/dashboard/Panel.tsx";
+import Panel from "./components/Panel.tsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

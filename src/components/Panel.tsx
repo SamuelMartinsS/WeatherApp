@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import WeatherCard from "./WeatherCard.tsx";
-import LineChart from "./LineChart.tsx";
-import Header from "../header/Header.tsx";
+import WeatherCard from "./dashboard/WeatherCard.tsx";
+import LineChart from "./dashboard/LineChart.tsx";
+import Header from "./header/Header.tsx";
 
 export default function Panel() {
   const [weatherData, setWeatherData] = useState({ names: [], daily: {} });
