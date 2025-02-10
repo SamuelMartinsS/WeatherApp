@@ -5,7 +5,7 @@ import { useRef } from "react";
 import Modal from "../dashboard/Modal.tsx";
 
 export default function Header({ sendFahr, cityName }) {
-  const inputLocation = useRef(null);
+  const inputLocation = useRef<HTMLInputElement>(null);
   const city = cityName;
   const [far, setFar] = useState(true);
   const [showModalError, setShowModalError] = useState(false);

@@ -7,6 +7,7 @@ const Modal = ({ isOpen, onClose, error }) => {
 
   const timeOut = () => {
     setTimeout(onClose, 1500);
+    return <></>;
   };
 
   return (
@@ -28,7 +29,7 @@ const Modal = ({ isOpen, onClose, error }) => {
             OK
           </button>
         ) : (
-          timeOut()
+          <div>{timeOut()}</div>
         )}
       </div>
     </div>

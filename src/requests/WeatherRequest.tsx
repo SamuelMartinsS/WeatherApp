@@ -14,7 +14,7 @@ export default async function WeatherRequest(props) {
     let weeklyData = {};
     let dailyData = {};
     let perDayVariation = {};
-    let temperatureEveryThreeHours = [8];
+    let temperatureEveryThreeHours: { value: string }[] = [];
     let processedData = {};
 
     let tempDay = "";
@@ -62,6 +62,7 @@ export default async function WeatherRequest(props) {
         minTemp =
           data.list[i].main.temp < minTemp ? data.list[i].main.temp : minTemp;
         temperatureEveryThreeHours.push(data.list[i].main.temp);
+        console.log("min temp -" + minTemp + " day" + day);
       }
     }
 
@@ -82,7 +83,6 @@ export default async function WeatherRequest(props) {
       perDayVariation["day1"].unshift(null);
     }
 
-    console.log(perDayVariation);
     //get the names of the days of the week
     const today = new Date();
     const dayIndex = today.getDay();

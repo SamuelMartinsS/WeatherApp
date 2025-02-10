@@ -5,8 +5,28 @@ import WeatherCard from "./dashboard/WeatherCard.tsx";
 import LineChart from "./dashboard/LineChart.tsx";
 import Header from "./header/Header.tsx";
 
+interface DailyData {
+  day: string;
+  maxTemp: number;
+  minTemp: number;
+  icon: string;
+}
+
+interface WeatherData {
+  city: string;
+  names: string[];
+  weekly: Record<string, DailyData>;
+  daily: Record<string, (number | null)[]>;
+}
+
 export default function Panel() {
-  const [weatherData, setWeatherData] = useState({ names: [], daily: {} });
+  const [weatherData, setWeatherData] = useState<WeatherData>({
+    city: "",
+    names: [],
+    weekly: {},
+    daily: {},
+  });
+
   const [loading, setLoading] = useState(true);
   const [fahr, setfahr] = useState(false);
 
@@ -42,7 +62,7 @@ export default function Panel() {
           {loading === false ? (
             <>
               <div className="city-name-panel">{weatherData.city} Forecast</div>
-              {weatherData.names.length > 0 && weatherData.daily && (
+              {weatherData.names.length > 0 && (
                 <div className="cards-container">
                   <WeatherCard
                     day={weatherData.names[0]}
@@ -79,7 +99,7 @@ export default function Panel() {
                     icon={weatherData.weekly.day5.icon}
                     fahr={fahr}
                   />
-                  {weatherData.weekly > 5 ? (
+                  {Object.keys(weatherData.weekly).length > 5 ? (
                     <WeatherCard
                       day={weatherData.names[5]}
                       maxTemp={weatherData.weekly.day6.maxTemp}
@@ -107,14 +127,16 @@ export default function Panel() {
               </div>
             </>
           )}
+          {weatherData.names.length > 0 &&
+            weatherData.names.length > 0 &&
+            loading === false && (
+              <LineChart
+                ids={weatherData.names}
+                data={weatherData.daily}
+                fahr={fahr}
+              />
+            )}
         </div>
-        {weatherData.names.length > 0 && weatherData.daily && (
-          <LineChart
-            ids={weatherData.names}
-            data={weatherData.daily}
-            fahr={fahr}
-          />
-        )}
       </div>
     </>
   );
