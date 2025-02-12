@@ -62,7 +62,6 @@ export default async function WeatherRequest(props) {
         minTemp =
           data.list[i].main.temp < minTemp ? data.list[i].main.temp : minTemp;
         temperatureEveryThreeHours.push(data.list[i].main.temp);
-        console.log("min temp -" + minTemp + " day" + day);
       }
     }
 
