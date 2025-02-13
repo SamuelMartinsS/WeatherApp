@@ -2,7 +2,7 @@
 
 This weather forecasting web application was developed in react, written in typescript and all the styles were done in pure css.
 
-The components are divided into header, dashboard and panel. In the first, a Header component is created which will contain the page header as well as a form that the user will use to submit the name of the city for which they want to see the forecast. The dashboard contains the components for the cards where the daily forecasts are represented, the component responsible for creating the chart and another that will be applied as a modal. Outside the subfolders are two files, Panel.tsx and Modal.tsx. The former is where the various modules will be applied. The second is a modal that will serve as a “popup” to warn the user of a possible error or while the application is loading.
+The components are divided into header, dashboard and panel. In the first, a Header component is created which will contain the page header as well as a form that the user will use to submit the name of the city for which they want to see the forecast. The dashboard contains the components for the cards where the daily forecasts are represented and the component responsible for creating the chart. Outside the subfolders are two files, Panel.tsx and Modal.tsx. The former is where the various modules will be applied. The second is a modal that will serve as a “popup” to warn the user of a possible error or while the application is loading.
 
 The WeatherRequest.ts file is responsible for making the request to the API and processing the data.
 
