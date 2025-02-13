@@ -1,8 +1,8 @@
 import React from "react";
-import WeatherRequest from "../../requests/WeatherRequest.tsx";
+import WeatherRequest from "../../requests/WeatherRequest.ts";
 import { useState } from "react";
 import { useRef } from "react";
-import Modal from "../dashboard/Modal.tsx";
+import Modal from "../Modal.tsx";
 
 export default function Header({ sendFahr, cityName }) {
   const inputLocation = useRef<HTMLInputElement>(null);
@@ -36,7 +36,7 @@ export default function Header({ sendFahr, cityName }) {
         ) : (
           <div className="city-name">Forecast</div>
         )}
-        <div className="search">
+        <form className="search">
           <div className="switch-container">
             C°&nbsp;
             <label className="switch">
@@ -61,7 +61,7 @@ export default function Header({ sendFahr, cityName }) {
           >
             Go
           </button>
-        </div>
+        </form>
       </div>
       {showModalError && (
         <Modal

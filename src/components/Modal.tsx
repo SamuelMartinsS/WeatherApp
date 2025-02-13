@@ -1,5 +1,5 @@
 import React from "react";
-import messages from "../../data/messages.json";
+import messages from "../data/messages.json";
 import { useEffect } from "react";
 
 const Modal = ({ isOpen, onClose, error }) => {
