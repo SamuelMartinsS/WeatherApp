@@ -8,8 +8,6 @@ The WeatherRequest.ts file is responsible for making the request to the API and 
 
 Also stored in the project is a file called data.json where dummy data is stored to test the application. This data will be imported into the WeatherRequest.tsx file.
 
-Translated with DeepL.com (free version)
-
 ## Available Scripts
 
 ### `npm start`
