@@ -6,7 +6,7 @@ The components are divided into header, dashboard and panel. In the first, a Hea
 
 The WeatherRequest.ts file is responsible for making the request to the API and processing the data.
 
-Also stored in the project is a file called data.json where dummy data is stored to test the application. This data will be imported into the WeatherRequest.tsx file.
+Also stored in the project is a file called weatherdata.json where dummy data is stored to test the application. This data will be imported into the WeatherRequest.tsx file.
 
 ## Available Scripts
 
