@@ -1,3 +1,7 @@
+# Application link
+
+https://samuelmartinss.github.io/WeatherApp/
+
 # About the app
 
 This weather forecasting web application was developed in react, written in typescript and all the styles were done in pure css.
@@ -8,13 +12,4 @@ The WeatherRequest.ts file is responsible for making the request to the API and 
 
 Also stored in the project is a file called weatherdata.json where dummy data is stored to test the application. This data will be imported into the WeatherRequest.ts file.
 
-## Available Scripts
 
-### `npm install`
-
-Install all the required packages
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
